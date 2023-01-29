@@ -1,41 +1,54 @@
-import React, {useState} from 'react';
-import logo from "../images/logo2.c00f4d085e2f20279eec.png";
-import {Link} from 'react-scroll';
+import React from 'react'
 
-function NavBar() {
-  const [nav,setnav] = useState(false);
-  const changeBackground = () => {
-    if (window.screenY >= 50) {
-      setnav(true);
-    }
-    else {
-      setnav(false);
-    }
-  }
-  window.addEventListener('scroll', changeBackground)
-
+function Header() {
   return (
-    <nav className={nav ? "nav active" : "nav"}>
-      <Link to='main' className='logo' smooth={true} duration={2000}>
-        <img src={logo} alt='' />
-      </Link>
-      <input className='menu-btn' type="checkbox" id='menu-btn' />
-      <label className='menu-icon' for='menu-btn'>
-        <span className="nav-icon"></span>
+   <header>
+
+<div className="flex container header">
+      <a href="brand">
+        <strong className="brand">Itax Easy</strong>
+      </a>
+      <label className="bars" for="toggle">
+        <i className="fas fa-bars"></i>
       </label>
-      <ul className='menu'>
-        <li><Link to='#' smooth={true} duration={1000}>Our Products</Link></li>
-        <li><Link to='#' smooth={true} duration={1000}>Our Service</Link></li>
-        <li><Link to='#' smooth={true} duration={1000}>Finance Calculater</Link></li>
-        <li><Link to='#' smooth={true} duration={1000}>Register a Startup</Link></li>
-        <li><Link to='#' smooth={true} duration={1000}>API's</Link></li>
-        <li><Link to='#' smooth={true} duration={1000}>Downloads</Link></li>
-        <div className='signup'>
-          <li className='li'><Link to='#' smooth={true} duration={1000}>Signup</Link></li>
-        </div>
-      </ul>
-    </nav>
+      <input id="toggle" type="checkbox" />
+
+      <nav className="header-nav">
+        <ul className="flex header-nav-ul sm-column">
+          <li className="nav-li"><a class="nav-li" href="index.html">Our Products</a></li>
+          <li className="nav-li"><a href="#about">Our Service</a></li>
+          <li className="nav-li"><a href="#service">Finance Calculater</a></li>
+          <li className="nav-li"><a href="#portfolio">Register a Startup</a></li>
+          <li className="nav-li"><a href="#team">API's</a></li>
+          <li className="nav-li dd">
+            <div>
+              <a href="#">Download<i class="drop fas fa-chevron-down"></i></a>
+              <ul className="sub-menu">
+                <li className="" ><a href="#">Drop Down 1</a></li>
+                <li className="sub-dd ">
+                  <a href="#">Drop Down 2<i class="fas fa-chevron-right"></i> </a>
+                  <ul className="sub-menu-deep">
+                    <li><a href="#">Deep Drop</a></li>
+                    <li><a href="#">Deep Drop</a></li>
+                    <li><a href="#">Deep Drop</a></li>
+                    <li><a href="#">Deep Drop</a></li>
+                    <li><a href="#">Deep Drop</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Drop Down 3</a></li>
+                <li><a href="#">Drop Down 4</a></li>
+                <li><a href="#">Drop Down 5</a></li>
+              </ul>
+            </div>
+          </li>
+          <li className="nav-li si"><a href="#contact">Sign In</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+   </header>
   )
 }
 
-export default NavBar;
+export default Header

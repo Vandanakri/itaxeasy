@@ -1,7 +1,7 @@
 import React from 'react'
 import aboutimage from "../images/experience.jpg"
 
-function About() {
+function Experience() {
   return (
     <div id='about'>
       <div className="about-image">
@@ -17,4 +17,4 @@ function About() {
   )
 }
 
-export default About
+export default Experience;
