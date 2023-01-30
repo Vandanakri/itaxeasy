@@ -1,13 +1,13 @@
 import React from "react";
-// import Signin from "./Signin";
 import { NavLink } from "react-router-dom";
+import Logo from '../images/logo2.c00f4d085e2f20279eec.png';
 
-function Header() {
+function Header({ isLogin, handleLogin, handleLogout }) {
   return (
     <header>
       <div className="flex container header">
-        <a href="brand">
-          <strong className="brand">Itax Easy</strong>
+        <a href="#">
+          <img src={Logo} alt="" />
         </a>
         <label className="bars" for="toggle">
           <i className="fas fa-bars"></i>
@@ -78,7 +78,12 @@ function Header() {
             </li>
 
             <li className="nav-li si">
-              <NavLink to="/signin">Sign In</NavLink>
+              {
+                isLogin ?
+                  <div onClick={()=>handleLogout()} style={{color:"white"}} >Sign In</div>
+                 :
+                  <NavLink to="/signin">Sign In</NavLink>
+              }
             </li>
             {/* <li className="nav-li si"><a href="#contact">Sign In</a></li> */}
           </ul>

@@ -1,32 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Components/Header";
-import Main from "./Components/Main";
-import Hero from "./Components/Hero";
-import Experience from "./Components/Experience";
-import Mission from "./Components/Mission";
-import Team from './Components/Team';
-import TeamsMem from "./Components/TeamsMem";
-import Contact from "./Components/Contact";
 import { Route, Routes } from "react-router-dom";
-import Signin from './Components/Signin';
-import Footer from "./Components/Footer.jsx";
+import Signin from "./Pages/Signin";
+import About from "./Pages/About";
 
 function App() {
-  return (
+  const [ isLogin, setIsLogin ] = useState(false);
 
-    <div className="App">
+  const handleLogin = () => {
+    setIsLogin(true)
+    // console.log("using login thing")
+  }
+
+  const handleLogout = ( ) => {
+    setIsLogin(false)
+  }
+
+  return (
+    <div className="App"  >
+      <Header isLogin={isLogin} handleLogin={handleLogin} handleLogout={handleLogout} />
       <Routes>
-      <Route path="/signin" element={<Signin />} />
+        <Route path="/" element={ <About />  } />
+        <Route path="/signin" element={<Signin isLogin={isLogin} handleLogin={handleLogin} />} />
       </Routes>
-      <Header />
-      <Hero />
-      <Main />
-      <Experience />
-      <Mission />
-      <Team />
-      <TeamsMem />
-      <Contact /> 
-      <Footer />
     </div>
   );
 }

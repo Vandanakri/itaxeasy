@@ -3,7 +3,9 @@ import React from 'react'
 function Mission() {
   return (
     <section>
+       <h2 className='header-miss'>OUR MISSION</h2>
        <div className="container flex flex-wrap mission-mq">
+       
         <div className="value-cover one flex-48">
           <article>
             <h6>Our Mission</h6>
